@@ -2,6 +2,7 @@
   <dictionary name="project">
     <words>
       <w>nums</w>
+      <w>strs</w>
     </words>
   </dictionary>
 </component>

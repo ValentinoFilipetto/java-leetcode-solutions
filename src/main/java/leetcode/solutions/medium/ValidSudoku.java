@@ -2,6 +2,12 @@ package leetcode.solutions.medium;
 
 import java.util.*;
 
+/**
+ * Pattern: Hashing
+ * Time complexity: O(n^2) - Structurally O(n^2) as it traverses every cell, but technically O(1) since the board is always 9x9.
+ * Space complexity: O(n^2) - O(1) since board is 9x9
+ * */
+
 public class ValidSudoku {
     public boolean isValidSudoku(char[][] board) {
         Map<Integer, Set<Character>> rows = new HashMap<>();

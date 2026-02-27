@@ -3,6 +3,12 @@ package leetcode.solutions.easy;
 import java.util.HashSet;
 import java.util.Set;
 
+/**
+ * Pattern: Hashing
+ * Time complexity: O(n)
+ * Space complexity: O(n)
+ * */
+
 public class ContainsDuplicate {
     public boolean hasDuplicate(int[] nums) {
         Set<Integer> seen = new HashSet<>();
