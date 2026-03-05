@@ -1,4 +1,4 @@
-package leetcode.solutions.easy;
+package leetcode.solutions.easy.binarysearch;
 
 /**
  * Pattern: Binary Search

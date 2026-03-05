@@ -1,4 +1,4 @@
-package leetcode.solutions.medium;
+package leetcode.solutions.medium.binarysearch;
 
 /**
  * Pattern: Binary Search
