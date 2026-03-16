@@ -9,6 +9,7 @@ src/main/java/leetcode/solutions/
 ├── types/              # Shared data structures (e.g. ListNode)
 ├── easy/
 │   ├── binarysearch/
+│   ├── greedy/
 │   ├── hashing/
 │   ├── linkedlist/
 │   ├── stack/
