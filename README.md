@@ -17,6 +17,7 @@ src/main/java/leetcode/solutions/
 ├── medium/
 │   ├── binarysearch/
 │   ├── hashing/
+│   ├── linkedlist/
 │   ├── sorting/
 │   ├── stack/
 │   ├── twopointers/
