@@ -18,6 +18,7 @@ src/main/java/leetcode/solutions/
 │   ├── binarysearch/
 │   ├── hashing/
 │   ├── linkedlist/
+│   ├── slidingwindow/
 │   ├── sorting/
 │   ├── stack/
 │   ├── twopointers/
