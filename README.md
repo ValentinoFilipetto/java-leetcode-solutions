@@ -24,6 +24,8 @@ src/main/java/leetcode/solutions/
 │   ├── twopointers/
 │   └── various/
 └── hard/
+│   ├── stack/
+│   └── twopointers/
 ```
 
 ## Build & Run

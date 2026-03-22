@@ -1,4 +1,4 @@
-package leetcode.solutions.hard;
+package leetcode.solutions.hard.twopointers;
 
 /**
  * Pattern: Two Pointers
