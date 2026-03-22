@@ -1,8 +1,8 @@
 package leetcode.solutions.medium.linkedlist;
 
+import leetcode.solutions.types.DoublyLinkedListNode;
 import java.util.HashMap;
 import java.util.Map;
-import leetcode.solutions.types.DoublyLinkedListNode;
 
 /**
  * Pattern: Doubly Linked List
@@ -15,7 +15,7 @@ import leetcode.solutions.types.DoublyLinkedListNode;
 class LRUCache {
     int capacity;
     int size = 0;
-    // Map to store key and corresponding node in the doubly linked list.
+    // Map to store the key and corresponding node in the doubly linked list.
     Map<Integer, DoublyLinkedListNode> map = new HashMap<>();
     DoublyLinkedListNode left;  // LRU
     DoublyLinkedListNode right; // MRU
@@ -28,13 +28,13 @@ class LRUCache {
         right.prev = left;
     }
 
-    // Remove node from the list.
+    // Remove the node from the list.
     private void removeNode(DoublyLinkedListNode node) {
         node.prev.next = node.next;
         node.next.prev = node.prev;
     }
 
-    // Append node to the right (MRU) end of the list.
+    // Append the node to the right (MRU) end of the list.
     private void appendRight(DoublyLinkedListNode node) {
         DoublyLinkedListNode prev = right.prev;
         prev.next = node;

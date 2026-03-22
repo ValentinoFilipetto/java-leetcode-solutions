@@ -1,6 +1,6 @@
 package leetcode.solutions.types;
 
-class DoublyLinkedListNode {
+public class DoublyLinkedListNode {
     public DoublyLinkedListNode next, prev;
     public int key, value;
 
