@@ -24,6 +24,7 @@ src/main/java/leetcode/solutions/
 │   ├── twopointers/
 │   └── various/
 └── hard/
+│   ├── linkedlists/
 │   ├── stack/
 │   └── twopointers/
 ```
