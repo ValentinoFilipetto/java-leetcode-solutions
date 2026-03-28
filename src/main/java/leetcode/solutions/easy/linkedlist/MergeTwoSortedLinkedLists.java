@@ -2,6 +2,10 @@ package leetcode.solutions.easy.linkedlist;
 
 import leetcode.solutions.types.ListNode;
 
+/**
+ * Pattern: Linked List
+ */
+
 public class MergeTwoSortedLinkedLists {
     public ListNode mergeTwoLists(ListNode list1, ListNode list2) {
         ListNode dummyNode = new ListNode(0);

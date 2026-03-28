@@ -1,6 +1,6 @@
 package leetcode.solutions.hard.linkedlists;
 
-import leetcode.solutions.ListNode;
+import leetcode.solutions.types.ListNode;
 
 /**
  * Pattern: Linked List
