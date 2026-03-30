@@ -2,30 +2,15 @@ package leetcode.solutions.easy.tree;
 
 import leetcode.solutions.types.TreeNode;
 
-import java.util.ArrayDeque;
-import java.util.Queue;
-
 /**
- * Pattern: Tree (BFS)
+ * Pattern: Tree (DFS)
  * Time complexity: O(n)
- * Space complexity: O(n), for queue.
+ * Space complexity: O(n), due to recursion stack.
  */
 
 public class MaximumDepthOfBinaryTree {
     public int maxDepth(TreeNode root) {
-        Queue<TreeNode> queue = new ArrayDeque<>();
-        if (root != null) queue.offer(root);
-
-        int level = 0;
-        while (!queue.isEmpty()) {
-            level++;
-            int size = queue.size();
-            for (int i = 0; i < size; i++) {
-                TreeNode node = queue.poll();
-                if (node.left != null) queue.offer(node.left);
-                if (node.right != null) queue.offer(node.right);
-            }
-        }
-        return level;
+        if (root == null) return 0;
+        return 1 + Math.max(maxDepth(root.left), maxDepth(root.right));
     }
 }
