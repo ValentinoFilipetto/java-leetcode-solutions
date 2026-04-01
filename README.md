@@ -6,13 +6,14 @@ My LeetCode solutions in Java, organized by difficulty and pattern.
 
 ```
 src/main/java/leetcode/solutions/
-├── types/              # Shared data structures (e.g. ListNode)
+├── types/              # Shared data structures (e.g. ListNode and TreeNode)
 ├── easy/
 │   ├── binarysearch/
 │   ├── greedy/
 │   ├── hashing/
 │   ├── linkedlist/
 │   ├── stack/
+│   ├── tree/
 │   └── twopointers/
 ├── medium/
 │   ├── binarysearch/
@@ -21,6 +22,7 @@ src/main/java/leetcode/solutions/
 │   ├── slidingwindow/
 │   ├── sorting/
 │   ├── stack/
+│   ├── tree/
 │   ├── twopointers/
 │   └── various/
 └── hard/
