@@ -7,6 +7,12 @@ import java.util.ArrayList;
 import java.util.Deque;
 import java.util.List;
 
+/**
+ * Pattern: Trees (BFS)
+ * Time complexity: O(n)
+ * Space complexity: O(n)
+ */
+
 public class BinaryTreeRightSideView {
     public List<Integer> rightSideView(TreeNode root) {
         Deque<TreeNode> queue = new ArrayDeque<>();
@@ -25,7 +31,8 @@ public class BinaryTreeRightSideView {
                 if (node.left != null) queue.add(node.left);
                 if (node.right != null) queue.add(node.right);
             }
-            res.add(level.get(level.size() - 1));
+            // .getLast() is equivalent to get(list.size() - 1)
+            res.add(level.getLast());
         }
         return res;
     }
