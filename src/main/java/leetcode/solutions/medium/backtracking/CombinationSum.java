@@ -20,7 +20,6 @@ public class CombinationSum {
     /**
      * Note: we pass sum instead of a combination list, as otherwise we would need to
      * calculate the sum of the combination every time and this is not efficient.
-     *
      */
     private void dfs(int[] nums, int i, int target, int sum,
                      List<Integer> combination, List<List<Integer>> res) {
