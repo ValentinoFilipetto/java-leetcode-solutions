@@ -1,6 +1,6 @@
 package leetcode.solutions.medium.slidingwindow;
 
-import java.util.HashSet;
+import java.util.Arrays;
 
 /**
  * Pattern: Sliding Window
