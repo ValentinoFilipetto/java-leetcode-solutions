@@ -28,6 +28,7 @@ src/main/java/leetcode/solutions/
 │   └── various/
 └── hard/
 │   ├── linkedlists/
+│   ├── slidingwindow/
 │   ├── stack/
 │   └── twopointers/
 ```
