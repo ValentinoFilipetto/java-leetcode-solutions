@@ -27,7 +27,6 @@ public class LetterCombinationsOfAPhoneNumber {
             '9', new char[]{'w','x','y','z'}
     );
 
-    private final Map<Character, char[]> map = new HashMap<>();
     private final List<String> res = new ArrayList<>();
 
     public List<String> letterCombinations(String digits) {
