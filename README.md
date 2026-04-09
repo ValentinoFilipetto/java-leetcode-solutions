@@ -18,6 +18,7 @@ src/main/java/leetcode/solutions/
 ├── medium/
 │   ├── backtracking/
 │   ├── binarysearch/
+│   ├── graphs/
 │   ├── hashing/
 │   ├── linkedlist/
 │   ├── slidingwindow/
