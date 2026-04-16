@@ -25,6 +25,7 @@ src/main/java/leetcode/solutions/
 │   ├── sorting/
 │   ├── stack/
 │   ├── tree/
+│   ├── tries/
 │   ├── twopointers/
 │   └── various/
 └── hard/
