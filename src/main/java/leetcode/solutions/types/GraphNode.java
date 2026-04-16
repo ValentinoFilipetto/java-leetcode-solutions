@@ -3,7 +3,6 @@ package leetcode.solutions.types;
 import java.util.ArrayList;
 import java.util.List;
 
-/** Definition of a graph node. */
 public class GraphNode {
     public int val;
     public List<GraphNode> neighbors;
