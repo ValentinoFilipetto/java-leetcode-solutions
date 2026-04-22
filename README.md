@@ -11,6 +11,7 @@ src/main/java/leetcode/solutions/
 │   ├── binarysearch/
 │   ├── greedy/
 │   ├── hashing/
+│   ├── heaps/
 │   ├── linkedlist/
 │   ├── stack/
 │   ├── tree/
