@@ -12,6 +12,7 @@ src/main/java/leetcode/solutions/
 │   ├── greedy/
 │   ├── hashing/
 │   ├── heaps/
+│   ├── intervals/
 │   ├── linkedlist/
 │   ├── stack/
 │   ├── tree/
