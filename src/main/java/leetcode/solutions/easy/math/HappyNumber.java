@@ -15,7 +15,6 @@ import java.util.Set;
  * of stored values is bounded by the digit-square sequence size.
  */
 
-
 public class HappyNumber {
     public boolean isHappy(int n) {
         Set<Integer> seen = new HashSet<>();
@@ -33,7 +32,8 @@ public class HappyNumber {
 
         while (n > 0) {
             int digit = n % 10;
-            output += (int) Math.pow(digit, 2);
+            // Better than Math.pow() as it returns a double and casting would be needed.
+            output += digit * digit;
             n /= 10;
         }
         return output;
