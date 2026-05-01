@@ -14,6 +14,7 @@ src/main/java/leetcode/solutions/
 │   ├── heaps/
 │   ├── intervals/
 │   ├── linkedlist/
+│   ├── math/
 │   ├── stack/
 │   ├── tree/
 │   └── twopointers/
