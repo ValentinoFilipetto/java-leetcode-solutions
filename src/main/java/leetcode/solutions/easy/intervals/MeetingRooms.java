@@ -3,7 +3,7 @@ package leetcode.solutions.easy.intervals;
 import java.util.List;
 
 /**
- * Pattern: intervals
+ * Pattern: Intervals
  * Time complexity: O(n log n)
  * Space complexity: O(n) due to sorting algorithm.
  */

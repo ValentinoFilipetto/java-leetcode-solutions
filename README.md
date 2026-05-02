@@ -23,6 +23,7 @@ src/main/java/leetcode/solutions/
 │   ├── binarysearch/
 │   ├── graphs/
 │   ├── hashing/
+│   ├── intervals/
 │   ├── linkedlist/
 │   ├── slidingwindow/
 │   ├── sorting/
