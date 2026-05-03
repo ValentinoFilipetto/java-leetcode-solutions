@@ -1,5 +1,7 @@
 package leetcode.solutions.easy.intervals;
 
+import leetcode.solutions.types.Interval;
+
 import java.util.List;
 
 /**
@@ -7,14 +9,6 @@ import java.util.List;
  * Time complexity: O(n log n)
  * Space complexity: O(n) due to sorting algorithm.
  */
-
-class Interval {
-     public int start, end;
-     public Interval(int start, int end) {
-         this.start = start;
-         this.end = end;
-     }
- }
 
 class MeetingRooms {
     public boolean canAttendMeetings(List<Interval> intervals) {
