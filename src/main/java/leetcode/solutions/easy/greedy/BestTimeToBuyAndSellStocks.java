@@ -1,22 +1,20 @@
 package leetcode.solutions.easy.greedy;
 
 /**
- * Patter: Greedy
+ * Patter: Greedy (sliding window structurally)
  * Time complexity: O(n)
  * Space complexity: O(1)
  */
 
 public class BestTimeToBuyAndSellStocks {
     public int maxProfit(int[] prices) {
-        int maxSoFar = 0;
+        int left = 0, maxSoFar = 0;
 
-        for (int i = 0; i < prices.length - 1; i++) {
-            int start = i;
-
-            // Check all profits we can make by buying at start and update maxSoFar.
-            while (i < prices.length - 1 && prices[start] < prices[i + 1]) {
-                maxSoFar = Math.max(maxSoFar, prices[i + 1] - prices[start]);
-                i++;
+        for (int right = 0; right < prices.length; right++) {
+            if (prices[right] <= prices[left]) left = right;
+            else {
+                int profit = prices[right] - prices[left];
+                maxSoFar = Math.max(maxSoFar, profit);
             }
         }
         return maxSoFar;
