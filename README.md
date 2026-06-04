@@ -9,6 +9,7 @@ src/main/java/leetcode/solutions/
 ├── types/              # Shared data structures (e.g. ListNode and TreeNode)
 ├── easy/
 │   ├── binarysearch/
+│   ├── dynamicprogramming/
 │   ├── graphs/
 │   ├── greedy/
 │   ├── hashing/
@@ -18,7 +19,8 @@ src/main/java/leetcode/solutions/
 │   ├── math/
 │   ├── stack/
 │   ├── tree/
-│   └── twopointers/
+│   ├── twopointers/
+│   └── various/
 ├── medium/
 │   ├── backtracking/
 │   ├── binarysearch/
@@ -39,13 +41,4 @@ src/main/java/leetcode/solutions/
 │   ├── slidingwindow/
 │   ├── stack/
 │   └── twopointers/
-```
-
-## Build & Run
-
-Requires Java and Gradle.
-
-```bash
-./gradlew build
-./gradlew test
 ```
