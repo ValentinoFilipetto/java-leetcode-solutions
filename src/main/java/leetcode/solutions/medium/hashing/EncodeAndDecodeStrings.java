@@ -20,17 +20,23 @@ public class EncodeAndDecodeStrings {
 
     public List<String> decode(String str) {
         List<String> res = new ArrayList<>();
-        int i = 0;
-        while (i < str.length()) {
-            int j = i;
-            while (str.charAt(j) != '#') {
-                j++;
+        int r = 0;
+        int l = 0;
+
+        while (r < str.length()) {
+            StringBuilder lengthAsString = new StringBuilder();
+
+            // Find length of next string
+            while (r < str.length() && (Character.isDigit(str.charAt(r)))) {
+                lengthAsString.append(str.charAt(r));
+                r++;
             }
-            int length = Integer.parseInt(str.substring(i, j));
-            i = j + 1;
-            j = i + length;
-            res.add(str.substring(i, j));
-            i = j;
+
+            // Use length to add next string to result
+            int length = Integer.parseInt(lengthAsString.toString());
+            l = r + 1;
+            r = l + length;
+            res.add(str.substring(l, r));
         }
         return res;
     }
