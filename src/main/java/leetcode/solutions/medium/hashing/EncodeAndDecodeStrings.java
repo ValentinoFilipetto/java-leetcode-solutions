@@ -21,7 +21,7 @@ public class EncodeAndDecodeStrings {
     public List<String> decode(String str) {
         List<String> res = new ArrayList<>();
         int r = 0;
-        int l = 0;
+        int l;
 
         while (r < str.length()) {
             StringBuilder lengthAsString = new StringBuilder();
