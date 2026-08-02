@@ -4,7 +4,7 @@ import java.util.Collections;
 import java.util.PriorityQueue;
 
 /**
- * Pattern: Heaps (min-heap)
+ * Pattern: Heaps (max-heap)
  * Time complexity: O(n log n)
  * Space complexity: O(n), where n is the number of stones.
  */
