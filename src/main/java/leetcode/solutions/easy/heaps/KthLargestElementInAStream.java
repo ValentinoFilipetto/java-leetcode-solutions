@@ -3,7 +3,7 @@ package leetcode.solutions.easy.heaps;
 import java.util.PriorityQueue;
 
 /**
- * Pattern: Heaps (min-heap)
+ * Pattern: min-heap
  * Time complexity: constructor takes O(n * log k), where n is the number of values in nums
  * add() takes O(log k) time complexity.
  * Space complexity: O(k)

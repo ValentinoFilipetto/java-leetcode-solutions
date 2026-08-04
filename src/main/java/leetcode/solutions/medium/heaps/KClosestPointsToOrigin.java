@@ -3,27 +3,27 @@ package leetcode.solutions.medium.heaps;
 import java.util.PriorityQueue;
 
 /**
- * Pattern: MinHeap
- * Time complexity: O(n * log n)
- * Space complexity: O(n)
+ * Pattern: max-heap
+ * Time complexity: O(n * log k)
+ * Space complexity: O(k)
  */
 
-public class KClosestPointsToOrigin {
+class Solution {
     public int[][] kClosest(int[][] points, int k) {
-        // We do the sorting of distances on the fly in the min heap.
-        // This is much better than calculating distances separately as it leads to the issue
-        // that we have distances in the heap, and it is hard to fetch points later for the response.
-        PriorityQueue<int[]> minHeap = new PriorityQueue<>(
-                (a, b) -> {
-                    return ((a[0] * a[0]) + (a[1] * a[1])) - ((b[0] * b[0]) + (b[1] * b[1]));
-                }
-        );
+        PriorityQueue<int[]> maxHeap = new PriorityQueue<>(
+            (a, b) -> Integer.compare(b[0] * b[0] + b[1] * b[1],
+                                      a[0] * a[0] + a[1] * a[1]));
+        
+        for (int[] point : points) {
+            maxHeap.offer(point);
+            if (maxHeap.size() > k) maxHeap.poll();
+        }
 
-        for (int[] point : points) minHeap.offer(point);
-
-        int[][] res = new int[k][];
-        for (int i = 0; i < k; i++) {
-            res[i] = minHeap.poll();
+        int[][] res = new int[k][2];
+        int i = 0;
+        while (!maxHeap.isEmpty()) {
+            int[] point = maxHeap.poll();
+            res[i++] = point;
         }
         return res;
     }
