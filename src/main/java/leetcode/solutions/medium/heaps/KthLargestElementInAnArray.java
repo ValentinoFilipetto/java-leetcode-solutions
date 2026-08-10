@@ -3,7 +3,7 @@ package leetcode.solutions.medium.heaps;
 import java.util.PriorityQueue;
 
 /**
- * Pattern: MinHeap
+ * Pattern: min-heap
  * Time complexity: O(n * log k)
  * Space complexity: O(k)
  */
@@ -14,7 +14,8 @@ public class KthLargestElementInAnArray {
 
         for (int num : nums) {
             minHeap.offer(num);
-            if (minHeap.size() > k) minHeap.poll();
+            if (minHeap.size() > k)
+                minHeap.poll();
         }
         return minHeap.peek();
     }
