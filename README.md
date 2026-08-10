@@ -43,3 +43,9 @@ src/main/java/leetcode/solutions/
 │   ├── stack/
 │   └── twopointers/
 ```
+
+## More docs
+
+Additional documentation to understand solutions. Still in progress.
+
+1) [Bitwise operations cheatsheet](./docs/bitwise-operations-cheatsheet.md)
