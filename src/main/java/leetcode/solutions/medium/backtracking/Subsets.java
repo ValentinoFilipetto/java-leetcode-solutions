@@ -29,6 +29,6 @@ public class Subsets {
         dfs(nums, i + 1, subset, res);
         subset.add(nums[i]);
         dfs(nums, i + 1, subset, res);
-        subset.removeLast();
+        subset.remove(subset.size() - 1);
     }
 }

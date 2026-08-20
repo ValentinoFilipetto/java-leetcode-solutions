@@ -31,8 +31,7 @@ public class BinaryTreeRightSideView {
                 if (node.left != null) queue.add(node.left);
                 if (node.right != null) queue.add(node.right);
             }
-            // .getLast() is equivalent to get(list.size() - 1)
-            res.add(level.getLast());
+            res.add(level.get(level.size() - 1));
         }
         return res;
     }

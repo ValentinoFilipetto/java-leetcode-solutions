@@ -38,6 +38,6 @@ public class CombinationSum {
         // Option 3: "take nums[i] only once" is obtained by means of the other two: take first time and then skip.
         combination.add(nums[i]);
         dfs(nums, i, target, sum + nums[i], combination, res);
-        combination.removeLast(); // backtrack.
+        combination.remove(combination.size() - 1); // backtrack.
     }
 }

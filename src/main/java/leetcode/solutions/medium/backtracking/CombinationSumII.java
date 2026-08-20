@@ -41,7 +41,7 @@ public class CombinationSumII {
 
         combination.add(candidates[i]);
         dfs(candidates, i + 1, target, sum + candidates[i], combination, res);
-        combination.removeLast();
+        combination.remove(combination.size() - 1);
 
         // This is the same idea used in ThreeSum.
         while (i < candidates.length - 1 && candidates[i] == candidates[i + 1]) i++;

@@ -26,7 +26,7 @@ public class SubsetsII {
 
         subset.add(nums[i]);
         dfs(nums, i + 1, subset);
-        subset.removeLast();
+        subset.remove(subset.size() - 1);
 
         // Same idea as Combination Sum II and Three Sum.
         while (i + 1 < nums.length && nums[i] == nums[i + 1]) i++;

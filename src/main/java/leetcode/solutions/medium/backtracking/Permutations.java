@@ -30,7 +30,7 @@ public class Permutations {
                 permutation.add(nums[i]);
                 dfs(nums, permutation, pick);
                 // backtrack.
-                permutation.removeLast();
+                permutation.remove(permutation.size() - 1);
                 pick[i] = false;
             }
         }
