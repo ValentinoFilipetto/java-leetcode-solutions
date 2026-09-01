@@ -8,18 +8,17 @@ package leetcode.solutions.easy.twopointers;
 
 public class ValidPalindrome {
     public boolean isPalindrome(String s) {
-        int l = 0, r = s.length() - 1;
+        int left = 0, right = s.length() - 1;
 
-        while (l < r) {
-            while (l < r && !isAlphaNum(s.charAt(l))) l++;
-            while (r > l && !isAlphaNum(s.charAt(r))) r--;
+        while (left < right) {
+            while (left < right && !isAlphaNum(s.charAt(left))) left++;
+            while (right > left && !isAlphaNum(s.charAt(right))) right--;
 
             // The problem statement expects us to compare only lowercase characters.
-            if (Character.toLowerCase(s.charAt(l)) != Character.toLowerCase(s.charAt(r))) {
+            if (Character.toLowerCase(s.charAt(left)) != Character.toLowerCase(s.charAt(right))) {
                 return false;
             }
-            // Do not forget to move pointers here too.
-            l++; r--;
+            left++; right--;
         }
         return true;
     }
