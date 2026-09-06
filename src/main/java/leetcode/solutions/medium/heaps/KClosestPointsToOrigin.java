@@ -20,11 +20,7 @@ class Solution {
         }
 
         int[][] res = new int[k][2];
-        int i = 0;
-        while (!maxHeap.isEmpty()) {
-            int[] point = maxHeap.poll();
-            res[i++] = point;
-        }
+        for (int i = 0; i < k; i++) res[i] = maxHeap.poll();
         return res;
     }
 }
