@@ -1,14 +1,12 @@
 package leetcode.solutions.medium.backtracking;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 /**
  * Pattern: Backtracking (DFS)
- * Time complexity: O(n * 4ⁿ), where n comes from combination.toString() and 4ⁿ
- * from the fact that we have 4 letters per digit in the worst case.
+ * Time complexity: O(n * 4ⁿ), where n comes from combination.toString() and 4ⁿ from the fact that we have 4 letters per digit in the worst case.
  * Space complexity: O(n)
  */
 
@@ -31,8 +29,6 @@ public class LetterCombinationsOfAPhoneNumber {
 
     public List<String> letterCombinations(String digits) {
         if (digits.isEmpty()) return res;
-        // StringBuilder is the mutable version of String.
-        // We use StringBuilder instead of String for the huge performance boost it gives in backtracking.
         backtracking(0, digits, new StringBuilder());
         return res;
     }
