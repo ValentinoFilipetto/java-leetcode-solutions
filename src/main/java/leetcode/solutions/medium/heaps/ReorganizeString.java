@@ -13,13 +13,12 @@ import java.util.PriorityQueue;
 
 
 public class ReorganizeString {
-        public String reorganizeString(String s) {
+    public String reorganizeString(String s) {
         // [frequency, letter]
         PriorityQueue<int[]> maxHeap = new PriorityQueue<>(
-            (a, b) -> Integer.compare(b[0], a[0])
-        );
+                (a, b) -> Integer.compare(b[0], a[0]));
         Map<Character, Integer> frequencies = new HashMap<>();
-        
+
         // Count frequencies of letters in s.
         for (char c : s.toCharArray()) {
             frequencies.computeIfAbsent(c, k -> 0);
@@ -31,7 +30,7 @@ public class ReorganizeString {
         for (Map.Entry<Character, Integer> e : frequencies.entrySet()) {
             char letter = e.getKey();
             int frequency = e.getValue();
-            maxHeap.add(new int[]{ frequency, letter });
+            maxHeap.add(new int[] { frequency, letter });
         }
 
         int[] previous = null;
@@ -43,7 +42,8 @@ public class ReorganizeString {
             res.append((char) current[1]);
             current[0]--;
 
-            if (previous != null && previous[0] > 0) maxHeap.add(previous);
+            if (previous != null && previous[0] > 0)
+                maxHeap.add(previous);
 
             previous = current;
         }
