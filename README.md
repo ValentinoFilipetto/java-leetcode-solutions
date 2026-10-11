@@ -14,15 +14,7 @@ TypeScript "tracer" that replays the same algorithm so the visualizer can show
 its steps. Tracers reference source lines by quoting the line's text (not line
 numbers), so editing a Java line that a tracer quotes breaks that highlight.
 
-After adding or renaming a solution in this repo, in the visualizer repo run:
-
-```
-pnpm run extract
-pnpm run check
-```
-
-`check` reports solutions with no tracer and tracers whose quoted Java line no
-longer exists.
+After adding or renaming a solution in this repo, the easiest way to visualize it is to use Claude Code and run the [sync-java-solutions](https://github.com/ValentinoFilipetto/leetcode-visualizer/blob/main/.claude/skills/sync-java-solutions/SKILL.md) skill. That will create a complete visualization, run several tests and push change to GitHub, where they will be deployed.
 
 ## More docs
 
