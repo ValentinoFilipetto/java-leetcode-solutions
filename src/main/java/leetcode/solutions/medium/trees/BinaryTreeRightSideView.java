@@ -1,6 +1,7 @@
-package leetcode.solutions.medium.tree;
+package leetcode.solutions.medium.trees;
 
 import leetcode.solutions.types.TreeNode;
+
 import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.Deque;
@@ -12,10 +13,10 @@ import java.util.List;
  * Space complexity: O(n)
  */
 
-public class BinaryTreeLevelOrderTraversal {
-    public List<List<Integer>> levelOrder(TreeNode root) {
+public class BinaryTreeRightSideView {
+    public List<Integer> rightSideView(TreeNode root) {
         Deque<TreeNode> queue = new ArrayDeque<>();
-        List<List<Integer>> res = new ArrayList<>();
+        List<Integer> res = new ArrayList<>();
 
         if (root != null) queue.add(root);
 
@@ -30,7 +31,7 @@ public class BinaryTreeLevelOrderTraversal {
                 if (node.left != null) queue.add(node.left);
                 if (node.right != null) queue.add(node.right);
             }
-            res.add(level);
+            res.add(level.get(level.size() - 1));
         }
         return res;
     }

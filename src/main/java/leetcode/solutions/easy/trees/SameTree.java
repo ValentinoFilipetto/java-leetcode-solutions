@@ -1,4 +1,4 @@
-package leetcode.solutions.easy.tree;
+package leetcode.solutions.easy.trees;
 
 import leetcode.solutions.types.TreeNode;
 
