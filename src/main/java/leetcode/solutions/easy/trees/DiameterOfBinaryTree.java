@@ -3,33 +3,27 @@ package leetcode.solutions.easy.trees;
 import leetcode.solutions.types.TreeNode;
 
 /**
- * Pattern: Trees
+ * Pattern: Trees (DFS)
  * Time complexity: O(n)
  * Space complexity: O(n)
- * Note: we need a local max variable because of an edge case: when the diameter is not obtainable by
- * connecting the left diameter with the right diameter through the root node, i.e. when the diameter is entirely
- * contained and "isolated" in one of the two root subtrees.
- * To understand this solution, a drawing will be quite helpful.
+ * Note: we need a local max variable because of an edge case: when the diameter is not obtainable by connecting the left diameter 
+ * with the right diameter through the root node, i.e. when the diameter is entirely contained and "isolated" in one of the two root subtrees.
  */
 
 public class DiameterOfBinaryTree {
+    int currMax = 0;
     public int diameterOfBinaryTree(TreeNode root) {
-        // We use int[] because we need a mutable reference as "current max" variable.
-        // There are other possibilities but int[] is lightweight and idiomatic for coding interviews.
-        int[] diameter = new int[1];
-        dfs(root, diameter);
-        return diameter[0];
+        dfs(root);
+        return currMax;
     }
 
-    private int dfs(TreeNode root, int[] diameter) {
+    private int dfs(TreeNode root) {
         if (root == null) return 0;
 
-        int left = dfs(root.left, diameter);
-        int right = dfs(root.right, diameter);
-        diameter[0] = Math.max(diameter[0], left + right);
-        // We return the maximum value because we need to pick: we cannot
-        // go up in the three by taking the sum of both subtrees.
-        return 1 + Math.max(left, right);
+        int maxDepthLeft = root.left == null ? 0 : 1 + dfs(root.left);
+        int maxDepthRight = root.right == null ? 0 : 1 + dfs(root.right);
+        currMax = Math.max(currMax, maxDepthLeft + maxDepthRight);
+        return Math.max(maxDepthLeft, maxDepthRight);
     }
 }
 
