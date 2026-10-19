@@ -3,7 +3,7 @@ package leetcode.solutions.easy.trees;
 import leetcode.solutions.types.TreeNode;
 
 /**
- * Pattern: Tree (DFS)
+ * Pattern: Trees (DFS)
  * Time complexity: O(n)
  * Space complexity: O(n) for recursion stack.
  */
@@ -15,8 +15,8 @@ public class InvertBinaryTree {
         TreeNode tmp = root.left;
         root.left = root.right;
         root.right = tmp;
-        root.left = this.invertTree(root.left);
-        root.right = this.invertTree(root.right);
+        root.left = invertTree(root.left);
+        root.right = invertTree(root.right);
         return root;
     }
 }
