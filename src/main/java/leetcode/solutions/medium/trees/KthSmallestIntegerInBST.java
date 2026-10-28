@@ -9,23 +9,23 @@ import java.util.List;
  * Pattern: Trees (DFS)
  * Time complexity: O(n)
  * Space complexity: O(n)
- * Note: inorder traversal in a binary search tree yields values in increasing order.
+ * Explanation: in-order traversal in a BST yields values in increasing order.
  */
 
 public class KthSmallestIntegerInBST {
-    public int kthSmallest(TreeNode root, int k) {
-        List<Integer> list = new ArrayList<>();
+    List<Integer> list = new ArrayList<>();
 
-        dfs(root, list);
+    public int kthSmallest(TreeNode root, int k) {
+        dfs(root);
         // k is 1-indexed.
         return list.get(k - 1);
     }
 
-    private void dfs(TreeNode root, List<Integer> list) {
+    private void dfs(TreeNode root) {
         if (root == null) return;
 
-        dfs(root.left, list);
+        dfs(root.left);
         list.add(root.val);
-        dfs(root.right, list);
+        dfs(root.right);
     }
 }
