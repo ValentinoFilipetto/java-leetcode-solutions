@@ -11,18 +11,23 @@ import java.util.Set;
 
 public class LongestSubstringWithoutRepeatingCharacters {
     public int lengthOfLongestSubstring(String s) {
-        Set<Character> charSet = new HashSet<>();
+        Set<Character> window = new HashSet<>();
+        Integer currMax = 0;
         int l = 0;
-        int maxSubstringLength = 0;
+        int r = 0;
 
-        for (int r = 0; r < s.length(); r++) {
-            while (charSet.contains(s.charAt(r))) {
-                charSet.remove(s.charAt(l));
+        while (r < s.length()) {
+            char curr = s.charAt(r);
+
+            while (window.contains(curr)) {
+                window.remove(s.charAt(l));
                 l++;
             }
-            charSet.add(s.charAt(r));
-            maxSubstringLength = Math.max(maxSubstringLength, r - l + 1);
+
+            window.add(curr);
+            currMax = Math.max(currMax, window.size());
+            r++;
         }
-        return maxSubstringLength;
+        return currMax;
     }
 }
