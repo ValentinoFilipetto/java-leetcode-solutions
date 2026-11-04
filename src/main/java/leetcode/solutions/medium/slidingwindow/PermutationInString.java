@@ -5,38 +5,31 @@ import java.util.Arrays;
 /**
  * Pattern: Sliding Window
  * Time complexity: O(n)
- * Space complexity: O(n)
- * Note: we might be tempted to use a HashSet to check for the presence of characters, 
- * but since we need to check for the frequency of characters, using an array to count the frequency is more efficient
- * and less error-prone than using a HashMap or HashSet.
+ * Time complexity is not O(n * m) because the array comparison inside the loop
+ * happens in constant O(26) time.
+ * Space complexity: O(1)
  */
 
 public class PermutationInString {
     public boolean checkInclusion(String s1, String s2) {
-        if (s1.length() > s2.length()) return false;
+        if (s2.length() < s1.length()) return false;
+        int l = 0;
+        int r = 0;
+        int[] s1Count = new int[26];
+        int[] s2Count = new int[26];
 
-        int[] need = new int[26];
-        int[] window = new int[26];
-        
-        // Count the frequency of characters in s1.
-        for (char c : s1.toCharArray()) {
-            need[c - 'a']++;
-        }
+        for (char c : s1.toCharArray()) s1Count[c - 'a']++;
 
-        int left = 0;
-        for (int right = 0; right < s2.length(); right++) {
-            window[s2.charAt(right) - 'a']++;
-            
-            // If the window size exceeds the length of s1, shrink the window from the left.
-            if (right - left + 1 > s1.length()) {
-                window[s2.charAt(left) - 'a']--;
-                left++;
+        while (r < s2.length()) {
+            // If size of window exceeds s1.length(), shrink it from the left.
+            // Checking on r + 1 means that we check at each iteration after the first window.
+            if (r + 1 > s1.length()) {
+                s2Count[s2.charAt(l) - 'a']--;
+                l++;
             }
-            
-            // Check if the current window matches the frequency of characters needed.
-            if (Arrays.equals(need, window)) {
-                return true;
-            }
+            s2Count[s2.charAt(r) - 'a']++;
+            if (Arrays.equals(s1Count, s2Count)) return true;
+            r++;
         }
         return false;
     }
