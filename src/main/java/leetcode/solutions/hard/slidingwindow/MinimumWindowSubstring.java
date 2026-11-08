@@ -19,7 +19,9 @@ public class MinimumWindowSubstring {
             countT.put(t.charAt(i), 1 + countT.getOrDefault(t.charAt(i), 0));
         }
 
-        int have = 0, minSoFar = Integer.MAX_VALUE, need = countT.size();
+        int have = 0;
+        int minSoFar = Integer.MAX_VALUE;
+        int need = countT.size();
         Map<Character, Integer> window = new HashMap<>();
         int[] res = { -1, -1 };
         int l = 0;
