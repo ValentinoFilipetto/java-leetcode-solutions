@@ -49,7 +49,8 @@ public class CheapestFlightInEveryWindow {
         
         // Fetch flights data from an API.
         Map<Integer, Map<String, Integer>> flights = getFlights(startDay, endDay);
-
+        
+        // `prices` will contain the price of the flight on the ith day.
         int[] prices = new int[span];
         Deque<Integer> dq = new ArrayDeque<>();
 
@@ -66,17 +67,17 @@ public class CheapestFlightInEveryWindow {
                 dq.addLast(i);
             }
             
-            // Unless we have checked all prices in the window, continue.
             int windowStart = i - dayRange + 1;
-            if (windowStart < 0) continue;
+            // Fetch smallest price and create output for the current dayRange.
+            if (i + 1 >= dayRange) {
+                // Remove from queue days that 'fell out' of the window.
+                while (!dq.isEmpty() && dq.peekFirst() < windowStart) dq.removeFirst();
 
-            // Remove from queue days that 'fell out' of the window.
-            while (!dq.isEmpty() && dq.peekFirst() < windowStart) dq.removeFirst();
-
-            if (!dq.isEmpty()) {
-                int best = dq.peekFirst();
-                res.put((startDay + windowStart) + "-" + (startDay + i),
-                        Map.of("day", startDay + best, PRICE, prices[best]));
+                if (!dq.isEmpty()) {
+                    int best = dq.peekFirst();
+                    res.put((startDay + windowStart) + "-" + (startDay + i),
+                            Map.of("day", startDay + best, PRICE, prices[best]));
+                }
             }
         }
         return res;
