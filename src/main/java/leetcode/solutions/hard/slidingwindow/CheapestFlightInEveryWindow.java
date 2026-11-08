@@ -55,6 +55,7 @@ public class CheapestFlightInEveryWindow {
         Deque<Integer> dq = new ArrayDeque<>();
 
         for (int i = 0; i < span; i++) {
+            // Fetch flight on the current day.
             Map<String, Integer> flightMap = flights.get(startDay + i);
 
             if (flightMap != null && flightMap.get(PRICE) != null) {
