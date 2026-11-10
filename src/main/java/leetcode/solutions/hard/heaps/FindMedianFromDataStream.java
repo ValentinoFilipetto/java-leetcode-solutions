@@ -11,8 +11,8 @@ import java.util.Queue;
  */
 
 public class FindMedianFromDataStream {
-    private Queue<Integer> smallHeap; // Small elements - maxHeap
-    private Queue<Integer> largeHeap; // Large elements - minHeap
+    private final Queue<Integer> smallHeap; // Small elements - maxHeap
+    private final Queue<Integer> largeHeap; // Large elements - minHeap
 
     public FindMedianFromDataStream() {
         // Integer.compare() avoids overflow.
