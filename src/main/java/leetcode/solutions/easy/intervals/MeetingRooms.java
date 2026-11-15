@@ -15,9 +15,7 @@ class MeetingRooms {
         intervals.sort((a, b) -> Integer.compare(a.start, b.start));
 
         for (int i = 0; i < intervals.size() - 1; i++) {
-            Interval i1 = intervals.get(i);
-            Interval i2 = intervals.get(i + 1);
-            if (i2.start < i1.end) return false;
+            if (intervals.get(i).end > intervals.get(i + 1).start) return false;
         }
         return true;
     }
