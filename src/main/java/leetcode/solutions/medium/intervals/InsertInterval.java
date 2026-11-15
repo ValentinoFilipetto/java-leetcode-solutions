@@ -19,28 +19,25 @@ import java.util.List;
  */
 
 public class InsertInterval {
-        public int[][] insert(int[][] intervals, int[] newInterval) {
-            // Using int[] instead of List<Integer> makes it easier to convert data structures later.
-            List<int[]> res = new ArrayList<>();
-            for (int[] interval : intervals) {
-                if (newInterval == null || interval[1] < newInterval[0]) {
-                    res.add(interval);
-                } else if (interval[0] > newInterval[1]) {
-                    res.add(newInterval);
-                    res.add(interval);
-                    newInterval = null;
-                } else {
-                    newInterval[0] = Math.min(interval[0], newInterval[0]);
-                    newInterval[1] = Math.max(interval[1], newInterval[1]);
-                }
-            }
-            // This case is useful for, e.g., the following edge case:
-            // intervals = [], newInterval not null.
-            if (newInterval != null) res.add(newInterval);
+    public int[][] insert(int[][] intervals, int[] newInterval) {
+        List<int[]> res = new ArrayList<>();
 
-            // This conversion is needed to satisfy the return type int[][] requirement.
-            // .toArray() converts res into int[][] by specifying the overall length
-            // and then copying each int[] array into it.
-            return res.toArray(new int[res.size()][]);
+        for (int i = 0; i < intervals.length; i++) {
+            if (newInterval[0] > intervals[i][1]) {
+                res.add(intervals[i]);
+            } else if (newInterval[1] < intervals[i][0]) {
+                res.add(newInterval);
+                for (int j = i; j < intervals.length; j++) res.add(intervals[j]);
+                return res.toArray(new int[0][]);
+            } else {
+                newInterval[0] = Math.min(newInterval[0], intervals[i][0]);
+                newInterval[1] = Math.max(newInterval[1], intervals[i][1]);
+            }
         }
+        res.add(newInterval);
+        // This conversion is needed to satisfy the return type int[][] requirement.
+        // .toArray() converts res into int[][] by specifying the overall length
+        // and then copying each int[] array into it.
+        return res.toArray(new int[0][]);
+    }
 }
