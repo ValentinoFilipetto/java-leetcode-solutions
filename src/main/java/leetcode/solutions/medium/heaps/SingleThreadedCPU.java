@@ -24,42 +24,41 @@ public class SingleThreadedCPU {
         // [index, enqueueTime, processingTime]
         // Sort in increasing order by enqueueTime.
         // This contains tasks that we cannot process yet as it is too early.
-        PriorityQueue<int[]> queue = new PriorityQueue<>(
+        PriorityQueue<int[]> tasksQueue = new PriorityQueue<>(
             Comparator.comparingInt((int[] a) -> a[1])
         );
         // [index, enqueueTime, processingTime]
         // Sort in increasing order by processingTime first, then by index.
         // This contains tasks that can be processed *right now*.
-        PriorityQueue<int[]> minHeap = new PriorityQueue<>(
+        PriorityQueue<int[]> tasksToProcess = new PriorityQueue<>(
                 Comparator.comparingInt((int[] a) -> a[2])
                           .thenComparingInt(a -> a[0])
         );
         
-        // Add all tasks to queue, including index, as we have to return it later
+        // Add all tasks to tasksQueue, including index, as we have to return it later
         // and it can determine tasks priorities.
         for (int i = 0; i < tasks.length; i++) {
             int[] task = tasks[i];
-            queue.offer(new int[]{ i, task[0], task[1] });
+            tasksQueue.offer(new int[]{ i, task[0], task[1] });
         }
 
         int[] res = new int[tasks.length];
-        int time = 1;
+        long time = 0;
         int index = 0;
-        while (!queue.isEmpty() || !minHeap.isEmpty()) {
+        while (!tasksQueue.isEmpty() || !tasksToProcess.isEmpty()) {
             // If no tasks is available for processing, jump ahead in time.
-            // Without this jump, minHeap.poll() can return null.
-            if (minHeap.isEmpty()) {
-                // Math.max() avoids moving time backward when the next task was enqueued 
-                // before the current task finished.
-                time = Math.max(time, queue.peek()[1]);
+            // Without this jump, tasksToProcess.poll() can return null.
+            if (tasksToProcess.isEmpty()) {
+                // Math.max() avoids moving time backward when the next task was enqueued before the current task finished.
+                time = Math.max(time, tasksQueue.peek()[1]);
             }
             
-            // Add tasks to minHeap from queue, as long as it is time to process them.
-            while (!queue.isEmpty() && queue.peek()[1] <= time) {
-                minHeap.offer(queue.poll());
+            // Add tasks to tasksToProcess from tasksQueue, as long as it is time to process them.
+            while (!tasksQueue.isEmpty() && tasksQueue.peek()[1] <= time) {
+                tasksToProcess.offer(tasksQueue.poll());
             }
         
-            int[] task = minHeap.poll();
+            int[] task = tasksToProcess.poll();
             res[index] = task[0];
             time += task[2];
             index++;
